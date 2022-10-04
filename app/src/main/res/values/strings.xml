@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">ACDAT-PruebaAndroid</string>
-    <string name="txtSaludo">Hola</string>
+    <string name="txtSaludo"> </string>
     <string name="btnSaludar">Saludar</string>
 </resources>

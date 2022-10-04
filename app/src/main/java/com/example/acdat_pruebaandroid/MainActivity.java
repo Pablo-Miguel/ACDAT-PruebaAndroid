@@ -23,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void onClick(View view) {
+    public void onClick(View view) throws InterruptedException {
         TextView txtSaludar = findViewById(R.id.txtSaludar);
         txtSaludar.setText("Hola mundo");
-        Toast.makeText(this, "Este mensaje se autodestruirá en ...", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Este mensaje se autodestruirá en 4 segundos", Toast.LENGTH_LONG).show();
+        Thread.sleep(4000);
     }
 }
