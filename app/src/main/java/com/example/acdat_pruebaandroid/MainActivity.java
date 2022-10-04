@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void saludar(View view) {
-        findViewById(R.id.textView);
+    public void onClick(View view) {
+        TextView txtSaludar = findViewById(R.id.txtSaludar);
+        txtSaludar.setText("Hola mundo");
+        Toast.makeText(this, "Este mensaje se autodestruirá en ...", Toast.LENGTH_LONG).show();
     }
 }
