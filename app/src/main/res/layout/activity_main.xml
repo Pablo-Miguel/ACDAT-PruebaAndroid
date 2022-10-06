@@ -21,8 +21,8 @@
 
     <Button
         android:id="@+id/btnSaludar"
-        android:layout_width="218dp"
-        android:layout_height="50dp"
+        android:layout_width="223dp"
+        android:layout_height="66dp"
         android:layout_marginStart="158dp"
         android:layout_marginTop="26dp"
         android:layout_marginEnd="159dp"
@@ -33,5 +33,33 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.592" />
+
+    <Button
+        android:id="@+id/btnSaludar2"
+        android:layout_width="224dp"
+        android:layout_height="67dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="194dp"
+        android:text="@string/btnSaludar2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaludar" />
+
+    <Button
+        android:id="@+id/btnCont"
+        android:layout_width="220dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="95dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="94dp"
+        android:layout_marginBottom="131dp"
+        android:text="@string/btnCont"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSaludar2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

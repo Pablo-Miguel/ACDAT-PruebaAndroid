@@ -2,4 +2,6 @@
     <string name="app_name">ACDAT-PruebaAndroid</string>
     <string name="txtSaludo"> </string>
     <string name="btnSaludar">Saludar</string>
+    <string name="btnSaludar2">Saludar2</string>
+    <string name="btnCont">Pulsacion: 0</string>
 </resources>
