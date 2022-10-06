@@ -4,4 +4,5 @@
     <string name="btnSaludar">Saludar</string>
     <string name="btnSaludar2">Saludar2</string>
     <string name="btnCont">Pulsacion: 0</string>
+    <string name="btnClickMain">Start</string>
 </resources>

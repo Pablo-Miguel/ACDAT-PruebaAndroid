@@ -1,65 +1,37 @@
 package com.example.acdat_pruebaandroid;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import com.google.android.material.tabs.TabLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static Integer cont = 0;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+public class MainActivity extends ListActivity {
+
+    String tests[] = { "HolaMundo" };
+
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        //Se empieza a programar a partir de aquí
-
-        Button btnSaludar2 = findViewById(R.id.btnSaludar2);
-        Button btnCont = findViewById(R.id.btnCont);
-
-        btnSaludar2.setOnClickListener(this);
-        btnCont.setOnClickListener(this);
-
-        Log.i("info", "Funciona");
-
-        /*
-        TextView texto = new TextView(this);
-
-        texto.setText("Hello, Android");
-
-        setContentView(texto);
-        */
+        setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests));
     }
 
-    public void onClick(View view) {
-        if(view.getId() == R.id.btnSaludar){
-            TextView txtSaludar = findViewById(R.id.txtSaludar);
-            txtSaludar.setText("Hola mundo1");
-            Button btnSaludar = (Button) view;
-            btnSaludar.setText("Has saludado1");
-            btnSaludar.setEnabled(false);
-            //Toast.makeText(this, "Este mensaje se autodestruirá en 4 segundos", Toast.LENGTH_LONG).show();
-            //Thread.sleep(4000);
-        } else if(view.getId() == R.id.btnSaludar2){
-            TextView txtSaludar = findViewById(R.id.txtSaludar);
-            txtSaludar.setText("Hola mundo2");
-            Button btnSaludar = (Button) view;
-            btnSaludar.setText("Has saludado2");
-            btnSaludar.setEnabled(false);
-            //Toast.makeText(this, "Este mensaje se autodestruirá en 4 segundos", Toast.LENGTH_LONG).show();
-            //Thread.sleep(4000);
-        }
-        else {
-            Button btnCont = (Button) view;
-            cont++;
-            btnCont.setText("Pulsación: " + cont);
 
-        }
+    @Override
+    protected void onListItemClick(ListView list, View view, int position, long id) {
+        super.onListItemClick(list, view, position, id);
 
+        String testName = tests[position];
+
+        try {
+
+            Class clazz = Class.forName("com.example.acdat_pruebaandroid." + testName);
+            Intent intent = new Intent(this, clazz);
+            startActivity(intent);
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
