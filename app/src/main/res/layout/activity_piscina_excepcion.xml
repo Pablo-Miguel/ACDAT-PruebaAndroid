@@ -7,43 +7,26 @@
     tools:context=".PiscinaExcepcion">
 
     <Button
-        android:id="@+id/btnProbar"
-        android:layout_width="191dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="71dp"
-        android:text="@string/btnProbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <Button
         android:id="@+id/btnVaciar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="19dp"
-        android:layout_marginEnd="34dp"
+        android:layout_width="161dp"
+        android:layout_height="72dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="23dp"
         android:text="@string/btnVaciar"
-        app:layout_constraintEnd_toStartOf="@+id/listPiscina"
-        app:layout_constraintTop_toBottomOf="@+id/btnProbar" />
+        app:layout_constraintBottom_toTopOf="@+id/sldNivel"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/btnLlenar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="156dp"
+        android:layout_height="72dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="23dp"
         android:text="@string/btnLlenar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnProbar" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listPiscina"
-        android:layout_width="158dp"
-        android:layout_height="213dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintBottom_toTopOf="@+id/sldNivel"
+        app:layout_constraintEnd_toStartOf="@+id/btnVaciar"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
@@ -61,28 +44,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ScrollView
+        android:id="@+id/sclRespuesta"
+        android:layout_width="383dp"
+        android:layout_height="417dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="21dp"
+        android:contentDescription="@string/btnSaludar2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/listPiscina"
+        android:layout_width="148dp"
+        android:layout_height="201dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="124dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <SeekBar
         android:id="@+id/sldNivel"
-        style="@style/Widget.AppCompat.SeekBar.Discrete"
-        android:layout_width="384dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="17dp"
-        android:max="10"
-        android:progress="3"
-        app:layout_constraintBottom_toTopOf="@+id/lblRespuesta"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/lblRespuesta"
-        android:layout_width="384dp"
-        android:layout_height="481dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="43dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="381dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/sclRespuesta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
