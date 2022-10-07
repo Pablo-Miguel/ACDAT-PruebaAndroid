@@ -8,31 +8,31 @@
 
     <Button
         android:id="@+id/btnVaciar"
-        android:layout_width="161dp"
-        android:layout_height="72dp"
-        android:layout_marginEnd="46dp"
-        android:layout_marginBottom="23dp"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="34dp"
+        android:enabled="false"
         android:text="@string/btnVaciar"
-        app:layout_constraintBottom_toTopOf="@+id/sldNivel"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listPiscina" />
 
     <Button
         android:id="@+id/btnLlenar"
-        android:layout_width="156dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="23dp"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginTop="8dp"
+        android:enabled="false"
         android:text="@string/btnLlenar"
-        app:layout_constraintBottom_toTopOf="@+id/sldNivel"
-        app:layout_constraintEnd_toStartOf="@+id/btnVaciar"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listPiscina" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="381dp"
         android:layout_height="35dp"
-        android:layout_marginStart="14dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="sans-serif-condensed-medium"
@@ -46,25 +46,29 @@
 
     <ScrollView
         android:id="@+id/sclRespuesta"
-        android:layout_width="383dp"
-        android:layout_height="417dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginEnd="14dp"
-        android:layout_marginBottom="21dp"
+        android:layout_width="381dp"
+        android:layout_height="450dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="16dp"
         android:contentDescription="@string/btnSaludar2"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sldNivel">
 
+        <TextView
+            android:id="@+id/txtRespuesta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </ScrollView>
 
     <ListView
         android:id="@+id/listPiscina"
-        android:layout_width="148dp"
-        android:layout_height="201dp"
-        android:layout_marginStart="134dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="124dp"
+        android:layout_width="329dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="46dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -72,12 +76,28 @@
     <SeekBar
         android:id="@+id/sldNivel"
         android:layout_width="381dp"
-        android:layout_height="62dp"
-        android:layout_marginStart="14dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/sclRespuesta"
+        android:max="1300"
+        android:progress="0"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtValorSldr" />
+
+    <TextView
+        android:id="@+id/txtValorSldr"
+        android:layout_width="139dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="136dp"
+        android:text="@string/txtValorSldr"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVaciar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

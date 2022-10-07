@@ -9,4 +9,5 @@
     <string name="btnVaciar">Vaciar</string>
     <string name="btnProbar">Probar piscina</string>
     <string name="lblPiscina">Capacidad de la Piscina en métros cúbicos</string>
+    <string name="txtValorSldr">0</string>
 </resources>

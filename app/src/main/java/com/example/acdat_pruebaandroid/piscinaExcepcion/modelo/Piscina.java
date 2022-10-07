@@ -40,23 +40,15 @@ public class Piscina {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 5;
-        return hash;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Piscina)) return false;
+        Piscina piscina = (Piscina) o;
+        return MAX_NIVEL.equals(piscina.MAX_NIVEL);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Piscina other = (Piscina) obj;
-        return Objects.equals(this.MAX_NIVEL, other.MAX_NIVEL);
+    public int hashCode() {
+        return Objects.hash(MAX_NIVEL);
     }
 }

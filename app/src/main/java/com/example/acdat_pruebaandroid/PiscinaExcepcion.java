@@ -3,6 +3,7 @@ package com.example.acdat_pruebaandroid;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,68 +12,83 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.ScrollView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
+import com.example.acdat_pruebaandroid.piscinaExcepcion.excepciones.CantidadFueraDeRangoException;
 import com.example.acdat_pruebaandroid.piscinaExcepcion.modelo.Piscina;
 import com.example.acdat_pruebaandroid.piscinaExcepcion.servicio.Servicio;
 
 import java.util.ArrayList;
 
 public class PiscinaExcepcion extends AppCompatActivity implements View.OnClickListener {
+    private SeekBar sldNivel;
+    private Piscina piscinaTemp;
+    private TextView txtRespuesta, txtValorSldr;
+    private Button btnLlenar, btnVaciar;
+    private ListView listPiscina;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_piscina_excepcion);
 
-        SeekBar sldNivel = (SeekBar) findViewById(R.id.sldNivel);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            sldNivel.setMin(0);
-        }
-        sldNivel.setMax(1300);
-        sldNivel.setProgress(0);
+        txtRespuesta = (TextView) findViewById(R.id.txtRespuesta);
+        txtValorSldr = (TextView) findViewById(R.id.txtValorSldr);
+        sldNivel = (SeekBar) findViewById(R.id.sldNivel);
         sldNivel.setEnabled(false);
-
-        findViewById(R.id.btnLlenar).setOnClickListener(this);
-        findViewById(R.id.btnVaciar).setOnClickListener(this);
+        btnLlenar = (Button) findViewById(R.id.btnLlenar);
+        btnLlenar.setOnClickListener(this);
+        btnLlenar.setBackgroundColor(Color.parseColor("#A1FFA1"));
+        btnVaciar = (Button) findViewById(R.id.btnVaciar);
+        btnVaciar.setOnClickListener(this);
+        btnVaciar.setBackgroundColor(Color.parseColor("#FF7E7E"));
 
         ArrayList<String> listTemp = new ArrayList<String>();
 
         for (Piscina p : Servicio.getInstance().getPiscinas()) {
-            listTemp.add(p.MAX_NIVEL.toString());
+            listTemp.add((Math.round(p.MAX_NIVEL / 10) / 100.0) + "");
         }
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listTemp);
 
-        ListView reciclerLista = (ListView) findViewById(R.id.listPiscina);
-        reciclerLista.setAdapter(adapter);
-
-        reciclerLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listPiscina = (ListView) findViewById(R.id.listPiscina);
+        listPiscina.setAdapter(adapter);
+        listPiscina.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                /*
 
-                if(listPiscina.isSelectionEmpty()){
-                    JOptionPane.showMessageDialog(this, "Porfavor, seleccione un valor de la lista");
+                piscinaTemp = Servicio.getInstance().getPiscina(new Piscina((int) (Double.parseDouble(listPiscina.getItemAtPosition(position).toString()) * 1000)));
+
+                sldNivel.setMax(piscinaTemp.MAX_NIVEL);
+                btnLlenar.setEnabled(true);
+                btnVaciar.setEnabled(true);
+
+                if (piscinaTemp.getNivel() == 0) {
+                    txtRespuesta.setText(txtRespuesta.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L está vacía: 0L\n");
+                    txtRespuesta.setText(txtRespuesta.getText() + "------------------------------------------------------------------------------------------------------------------\n");
+                } else {
+                    txtRespuesta.setText(txtRespuesta.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Nivel actual de piscina: " + piscinaTemp.getNivel() + "L\n");
+                    txtRespuesta.setText(txtRespuesta.getText() + "------------------------------------------------------------------------------------------------------------------\n");
                 }
-                else {
-                    piscinaTemp = Servicio.getInstance().getPiscina(new Piscina((int) (Double.parseDouble(listPiscina.getSelectedValue()) * 1000)));
+            }
+        });
 
-                    sdrCantidad.setMaximum(piscinaTemp.MAX_NIVEL);
-                    btnLlenar.setEnabled(true);
-                    btnVaciar.setEnabled(true);
+        sldNivel.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                txtValorSldr.setText(sldNivel.getProgress() + "");
+            }
 
-                    if(piscinaTemp.getNivel() == 0){
-                        taDatos.setText(taDatos.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L está vacía: 0L\n");
-                        taDatos.setText(taDatos.getText() + "------------------------------------------------------------------------------------------------------------------\n");
-                    }
-                    else {
-                        taDatos.setText(taDatos.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Nivel actual de piscina: " + piscinaTemp.getNivel() + "L\n");
-                        taDatos.setText(taDatos.getText() + "------------------------------------------------------------------------------------------------------------------\n");
-                    }
-                }
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
-                 */
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
             }
         });
 
@@ -81,34 +97,35 @@ public class PiscinaExcepcion extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btnLlenar){
-            /*
+
             try {
-                sdrCantidad.setValue(getRandom());
-                piscinaTemp.llenar(sdrCantidad.getValue());
-                taDatos.setText(taDatos.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Llenando: " + sdrCantidad.getValue() + "L \tNivel: " + piscinaTemp.getNivel() + "L\n");
-                taDatos.setText(taDatos.getText() + "------------------------------------------------------------------------------------------------------------------\n");
+                sldNivel.setProgress(getRandom());
+                piscinaTemp.llenar(sldNivel.getProgress());
+                txtRespuesta.setText(txtRespuesta.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Llenando: " + sldNivel.getProgress() + "L \tNivel: " + piscinaTemp.getNivel() + "L\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "------------------------------------------------------------------------------------------------------------------\n");
             } catch (CantidadFueraDeRangoException ex) {
-                taDatos.setText(taDatos.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Llenando: " + sdrCantidad.getValue() + "L \t" + ex.getMessage() + "\n");
-                taDatos.setText(taDatos.getText() + "\t\t\tSe queda con " + piscinaTemp.getNivel() + "L\n");
-                taDatos.setText(taDatos.getText() + "------------------------------------------------------------------------------------------------------------------\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Llenando: " + sldNivel.getProgress() + "L \t" + ex.getMessage() + "\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "\t\t\tSe queda con " + piscinaTemp.getNivel() + "L\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "------------------------------------------------------------------------------------------------------------------\n");
             }
 
-            */
-
         } else if(view.getId() == R.id.btnVaciar){
-            /*
-                try {
-                    sdrCantidad.setValue(getRandom());
-                    piscinaTemp.vaciar(sdrCantidad.getValue());
-                    taDatos.setText(taDatos.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Vaciando: " + sdrCantidad.getValue() + "L \tNivel: " + piscinaTemp.getNivel() + "L\n");
-                    taDatos.setText(taDatos.getText() + "------------------------------------------------------------------------------------------------------------------\n");
-                } catch (CantidadFueraDeRangoException ex) {
-                    taDatos.setText(taDatos.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Vaciando: " + sdrCantidad.getValue() + "L \t" + ex.getMessage() + "\n");
-                    taDatos.setText(taDatos.getText() + "\t\t\tSe queda con " + piscinaTemp.getNivel() + "L\n");
-                    taDatos.setText(taDatos.getText() + "------------------------------------------------------------------------------------------------------------------\n");
-                }
-            */
 
+            try {
+                sldNivel.setProgress(getRandom());
+                piscinaTemp.vaciar(sldNivel.getProgress());
+                txtRespuesta.setText(txtRespuesta.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Vaciando: " + sldNivel.getProgress() + "L \tNivel: " + piscinaTemp.getNivel() + "L\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "------------------------------------------------------------------------------------------------------------------\n");
+            } catch (CantidadFueraDeRangoException ex) {
+                txtRespuesta.setText(txtRespuesta.getText() + "Piscina " + piscinaTemp.MAX_NIVEL + "L -> Vaciando: " + sldNivel.getProgress() + "L \t" + ex.getMessage() + "\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "\t\t\tSe queda con " + piscinaTemp.getNivel() + "L\n");
+                txtRespuesta.setText(txtRespuesta.getText() + "------------------------------------------------------------------------------------------------------------------\n");
+            }
         }
     }
+
+    private int getRandom() {
+        return (int) (Math.random() * 1000 + 1);
+    }
+
 }
