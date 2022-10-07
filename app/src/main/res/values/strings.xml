@@ -5,4 +5,8 @@
     <string name="btnSaludar2">Saludar2</string>
     <string name="btnCont">Pulsacion: 0</string>
     <string name="btnClickMain">Start</string>
+    <string name="btnLlenar">Llenar</string>
+    <string name="btnVaciar">Vaciar</string>
+    <string name="btnProbar">Probar piscina</string>
+    <string name="lblPiscina">Capacidad de la Piscina en métros cúbicos</string>
 </resources>
