@@ -10,4 +10,11 @@
     <string name="btnProbar">Probar piscina</string>
     <string name="lblPiscina">Capacidad de la Piscina en métros cúbicos</string>
     <string name="txtValorSldr">0</string>
+    <string name="lblCalcNum1">Introduce primer número</string>
+    <string name="lblCalcNum2">Introduce el segundo número</string>
+    <string name="btnRestar">Restar</string>
+    <string name="btnSumar">Sumar</string>
+    <string name="lblResultado">Resultado:</string>
+    <string name="txtNum1">Numero 1</string>
+    <string name="txtNum2">Numero 2</string>
 </resources>
