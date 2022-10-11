@@ -29,7 +29,13 @@ public class Calculadora extends AppCompatActivity {
         EditText etNum2 = (EditText) findViewById(R.id.editTextNum2);
         TextView txtRespuesta = (TextView) findViewById(R.id.lblCalcResultado);
 
-        txtRespuesta.setText( "" + (Double.parseDouble(etNum1.getText().toString()) + Double.parseDouble(etNum2.getText().toString())));
+        if(!etNum1.getText().toString().equals("") && !etNum2.getText().toString().equals("")){
+            txtRespuesta.setText( "" + (Double.parseDouble(etNum1.getText().toString()) + Double.parseDouble(etNum2.getText().toString())));
+        }
+        else {
+            txtRespuesta.setText("ERROR: Introduzca los numeros");
+        }
+
 
     }
 
@@ -38,7 +44,12 @@ public class Calculadora extends AppCompatActivity {
         EditText etNum2 = (EditText) findViewById(R.id.editTextNum2);
         TextView txtRespuesta = (TextView) findViewById(R.id.lblCalcResultado);
 
-        txtRespuesta.setText( "" + (Double.parseDouble(etNum1.getText().toString()) - Double.parseDouble(etNum2.getText().toString())));
+        if(!etNum1.getText().toString().equals("") && !etNum2.getText().toString().equals("")){
+            txtRespuesta.setText( "" + (Double.parseDouble(etNum1.getText().toString()) - Double.parseDouble(etNum2.getText().toString())));
+        }
+        else {
+            txtRespuesta.setText("ERROR: Introduzca los numeros");
+        }
 
     }
 }

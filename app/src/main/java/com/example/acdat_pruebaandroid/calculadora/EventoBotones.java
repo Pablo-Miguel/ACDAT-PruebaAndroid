@@ -6,9 +6,11 @@ import android.widget.Button;
 import com.example.acdat_pruebaandroid.Calculadora;
 import com.example.acdat_pruebaandroid.R;
 
-public class EventoBotones implements View.OnClickListener {
-    Calculadora calculadora;
+public class EventoBotones extends View {
+    private Calculadora calculadora;
+
     public EventoBotones(Calculadora calculadora) {
+        super(calculadora);
         Button btnSumar = (Button) calculadora.findViewById(R.id.btnSumar);
         btnSumar.setOnClickListener(this::onClick);
         Button btnRestar = (Button) calculadora.findViewById(R.id.btnRestar);
@@ -16,7 +18,6 @@ public class EventoBotones implements View.OnClickListener {
         this.calculadora = calculadora;
     }
 
-    @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btnSumar){
             calculadora.sumar();
