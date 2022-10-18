@@ -10,8 +10,8 @@ import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
 
-    String tests[] = { "holamundo.HolaMundo", "piscinaExcepcion.PiscinaExcepcion", "calculadora.Calculadora", "leerarchivos.LeerEscribir" };
-
+    String tests[] = { "HolaMundo", "PiscinaExcepcion", "Calculadora", "LeerEscribir" };
+    String pakage[] = {"holamundo.", "piscinaExcepcion.", "calculadora.", "leerarchivos."};
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests));
@@ -23,10 +23,11 @@ public class MainActivity extends ListActivity {
         super.onListItemClick(list, view, position, id);
 
         String testName = tests[position];
+        String pakageName = pakage[position];
 
         try {
 
-            Class clazz = Class.forName("com.example.acdat_pruebaandroid." + testName);
+            Class clazz = Class.forName("com.example.acdat_pruebaandroid." + pakageName + testName);
             Intent intent = new Intent(this, clazz);
             startActivity(intent);
 
