@@ -1,4 +1,4 @@
-package com.example.acdat_pruebaandroid;
+package com.example.acdat_pruebaandroid.calculadora;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.acdat_pruebaandroid.R;
 import com.example.acdat_pruebaandroid.calculadora.EventoBotones;
 
 public class Calculadora extends AppCompatActivity {

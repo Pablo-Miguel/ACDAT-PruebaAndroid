@@ -3,7 +3,7 @@
     <string name="txtSaludo"> </string>
     <string name="btnSaludar">Saludar</string>
     <string name="btnSaludar2">Saludar2</string>
-    <string name="btnCont">Pulsacion: 0</string>
+    <string name="btnCont">Pulsacion</string>
     <string name="btnClickMain">Start</string>
     <string name="btnLlenar">Llenar</string>
     <string name="btnVaciar">Vaciar</string>
@@ -17,4 +17,8 @@
     <string name="lblResultado">Resultado:</string>
     <string name="txtNum1">Numero 1</string>
     <string name="txtNum2">Numero 2</string>
+    <string name="btnVolver">Volver</string>
+    <string name="btnEditarTexto">Editar texto</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="vacio">" "</string>
 </resources>

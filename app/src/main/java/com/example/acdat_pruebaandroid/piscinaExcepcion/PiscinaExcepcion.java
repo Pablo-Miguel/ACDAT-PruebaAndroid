@@ -1,4 +1,4 @@
-package com.example.acdat_pruebaandroid;
+package com.example.acdat_pruebaandroid.piscinaExcepcion;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +16,7 @@ import android.widget.ScrollView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.example.acdat_pruebaandroid.R;
 import com.example.acdat_pruebaandroid.piscinaExcepcion.excepciones.CantidadFueraDeRangoException;
 import com.example.acdat_pruebaandroid.piscinaExcepcion.modelo.Piscina;
 import com.example.acdat_pruebaandroid.piscinaExcepcion.servicio.Servicio;

@@ -10,7 +10,7 @@ import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
 
-    String tests[] = { "HolaMundo", "PiscinaExcepcion", "Calculadora" };
+    String tests[] = { "holamundo.HolaMundo", "piscinaExcepcion.PiscinaExcepcion", "calculadora.Calculadora", "leerarchivos.LeerEscribir" };
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

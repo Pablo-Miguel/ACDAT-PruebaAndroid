@@ -13,21 +13,42 @@
         android:theme="@style/Theme.ACDATPruebaAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".Calculadora"
+            android:name=".leerarchivos.Escribir"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".PiscinaExcepcion"
+            android:name=".leerarchivos.LeerEscribir"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".HolaMundo"
+            android:name=".holamundo.Pulsador"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".calculadora.Calculadora"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".piscinaExcepcion.PiscinaExcepcion"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".holamundo.HolaMundo"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

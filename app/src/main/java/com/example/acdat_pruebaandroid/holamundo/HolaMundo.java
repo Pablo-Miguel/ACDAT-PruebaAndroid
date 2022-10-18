@@ -1,12 +1,15 @@
-package com.example.acdat_pruebaandroid;
+package com.example.acdat_pruebaandroid.holamundo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.acdat_pruebaandroid.R;
 
 public class HolaMundo extends AppCompatActivity implements View.OnClickListener{
 
@@ -19,7 +22,7 @@ public class HolaMundo extends AppCompatActivity implements View.OnClickListener
         //Se empieza a programar a partir de aquí
 
         Button btnSaludar2 = findViewById(R.id.btnSaludar2);
-        Button btnCont = findViewById(R.id.btnCont);
+        Button btnCont = findViewById(R.id.btnContPanel);
 
         btnSaludar2.setOnClickListener(this);
         btnCont.setOnClickListener(this);
@@ -54,9 +57,11 @@ public class HolaMundo extends AppCompatActivity implements View.OnClickListener
             //Thread.sleep(4000);
         }
         else {
-            Button btnCont = (Button) view;
-            cont++;
-            btnCont.setText("Pulsación: " + cont);
+
+            String tamanyo = "Mi pizza mide 45 centimetracos";
+            Intent i = new Intent(this, Pulsador.class);
+            i.putExtra("tamanyoPizza", tamanyo);
+            startActivity(i);
 
         }
 

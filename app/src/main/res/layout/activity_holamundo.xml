@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HolaMundo">
+    tools:context=".holamundo.HolaMundo">
 
     <Button
         android:id="@+id/btnSaludar"
@@ -21,7 +21,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnCont"
+        android:id="@+id/btnContPanel"
         android:layout_width="184dp"
         android:layout_height="48dp"
         android:layout_marginStart="114dp"
@@ -53,7 +53,7 @@
         android:layout_marginStart="114dp"
         android:layout_marginEnd="114dp"
         android:text="@string/btnSaludar2"
-        app:layout_constraintBottom_toTopOf="@+id/btnCont"
+        app:layout_constraintBottom_toTopOf="@+id/btnContPanel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSaludar" />

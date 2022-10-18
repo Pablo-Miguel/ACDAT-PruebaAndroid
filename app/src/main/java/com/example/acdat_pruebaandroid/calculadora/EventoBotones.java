@@ -3,7 +3,6 @@ package com.example.acdat_pruebaandroid.calculadora;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.acdat_pruebaandroid.Calculadora;
 import com.example.acdat_pruebaandroid.R;
 
 public class EventoBotones extends View {
