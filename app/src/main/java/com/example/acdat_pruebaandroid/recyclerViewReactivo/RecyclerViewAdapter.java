@@ -53,13 +53,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         holder.bind(listaPersonas.get(position));
 
-        this.position = position;
-
-        if(this.position != null){
-            holder.getBtnEliminar().setOnClickListener(this);
-        }
-
-        this.position = null;
+        holder.removeHandler();
 
     }
 
@@ -93,8 +87,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             binding.txtPersona.setText(persona.getNombre());
         }
 
-        public Button getBtnEliminar(){
-            return binding.btnEliminar;
+        public void removeHandler(){
+            binding.btnEliminar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    removePersona(getPersona(getLayoutPosition()));
+                }
+            });
         }
 
     }
