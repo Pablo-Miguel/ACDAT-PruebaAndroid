@@ -21,4 +21,7 @@
     <string name="btnEditarTexto">Editar texto</string>
     <string name="btnGuardar">Guardar</string>
     <string name="vacio">" "</string>
+    <string name="btnAnadir">Añadir</string>
+    <string name="empty" />
+    <string name="btnEliminar">Eliminar</string>
 </resources>

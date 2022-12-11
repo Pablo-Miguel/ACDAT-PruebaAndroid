@@ -10,8 +10,8 @@ import android.widget.ListView;
 
 public class MainActivity extends ListActivity {
 
-    String tests[] = { "HolaMundo", "PiscinaExcepcion", "Calculadora", "LeerEscribir" };
-    String pakage[] = {"holamundo.", "piscinaExcepcion.", "calculadora.", "leerarchivos."};
+    String tests[] = { "HolaMundo", "PiscinaExcepcion", "Calculadora", "LeerEscribir", "MainActivityRecyclerView"};
+    String pakage[] = {"holamundo.", "piscinaExcepcion.", "calculadora.", "leerarchivos.", "recyclerViewReactivo."};
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, tests));
